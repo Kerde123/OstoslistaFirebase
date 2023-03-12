@@ -1,28 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, Button, FlatList } from 'react-native';
-import { initializeApp } from 'firebase/app';
-import { getDatabase, push, ref, onValue, remove } from 'firebase/database';
-import { getAnalytics } from "firebase/analytics";
+import { push, ref, onValue, remove } from 'firebase/database';
 import React, { useState, useEffect } from 'react';
+import database from './firebase';
 
 export default function App() {
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAiNze9_N7Or9_V_CAZLx5Ir3gC6kmOYps",
-  authDomain: "ostoslistafirebase-f5f50.firebaseapp.com",
-  databaseURL: "https://ostoslistafirebase-f5f50-default-rtdb.firebaseio.com",
-  projectId: "ostoslistafirebase-f5f50",
-  storageBucket: "ostoslistafirebase-f5f50.appspot.com",
-  messagingSenderId: "998724184060",
-  appId: "1:998724184060:web:bcc78ceb8b037f6f7d7479",
-  measurementId: "G-FRBVM4Z6WX"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-
-const database = getDatabase(app);
 
 const [amount, setAmount] = useState('');
 const [product, setProduct] = useState('');
